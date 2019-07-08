@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="userexperior-cordova-plugin" version="0.2.1" spec="0.2.1">
+   <name>UserExperiorPlugin</name>
+   <js-module name="UserExperiorPlugin" src="www/UserExperiorPlugin.js">
+      <clobbers target="UserExperior" />
+   </js-module>
+   <platform name="android">
+      <framework src="src/android/userexperior-plugin.gradle" type="gradleReference" custom="true" />
+      <!--<lib-file src="src/android/userexperiorsdk-V2-2-04202018.aar"/>-->
+      <config-file parent="/*" target="res/xml/config.xml">
+         <feature name="UserExperiorPlugin">
+            <param name="android-package" value="com.userexperiorplugin.cordova.UserExperiorPlugin" />
+         </feature>
+      </config-file>
+      <config-file parent="/*" target="AndroidManifest.xml" />
+      <source-file src="src/android/UserExperiorPlugin.java" target-dir="src/com/userexperiorplugin/cordova" />
+   </platform>
+   <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="UserExperiorPlugin">
+                <param name="ios-package" value="CDVUserExperior"/>
+            </feature>
+        </config-file>
+        
+        <!-- Source for our iOS plugin -->
+        <header-file src="src/ios/CDVUserExperior.h"/>
+        <source-file src="src/ios/CDVUserExperior.m"/>
+        
+        <!-- Add in the UserExperior framework -->
+        <framework src="src/ios/UserExperior.framework" embed="true" custom="true" /> 
+
+        <!-- and the system frameworks that UserExperior depends on -->
+        <framework src="CoreTelephony.framework" />
+    </platform>
+</plugin>
