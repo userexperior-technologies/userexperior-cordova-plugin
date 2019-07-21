@@ -258,6 +258,7 @@ SWIFT_CLASS("_TtC12UserExperior12UserExperior")
 + (void)setCustomTagWithString:(NSString * _Nonnull)customTag customType:(NSString * _Nonnull)customType;
 + (void)setCustomTag:(NSString * _Nonnull)customTag customType:(enum UECustomType)customType;
 + (void)setUserIdentifier:(NSString * _Nonnull)userIdentifier;
++ (void)startScreen:(NSString * _Nonnull)screenName;
 + (void)stopRecording;
 + (void)pauseRecording;
 + (void)resumeRecording;

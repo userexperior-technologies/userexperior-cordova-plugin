@@ -46,6 +46,20 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+- (void)startScreen:(CDVInvokedUrlCommand*)command {
+    CDVPluginResult* pluginResult = nil;
+    NSString *screenName = command.arguments[0];
+    
+    if (screenName.length > 0) {
+        [UserExperior startScreen:screenName];
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    } else {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+    }
+    
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+    
 - (void)resumeRecording:(CDVInvokedUrlCommand*)command {
     [UserExperior resumeRecording];
 
