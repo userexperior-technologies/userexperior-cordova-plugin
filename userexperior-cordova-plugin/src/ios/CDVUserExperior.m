@@ -18,7 +18,7 @@
 //    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
-//- (void)setCustomTag:(CDVInvokedUrlCommand*)command {
+- (void)setCustomTag:(CDVInvokedUrlCommand*)command {
 //    CDVPluginResult *pluginResult = nil;
 //    NSString *tag = command.arguments[0];
 //    NSString *type = command.arguments[1];
@@ -30,9 +30,9 @@
 //        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
 //    }
 //    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-//}
-//
-//- (void)setUserIdentifier:(CDVInvokedUrlCommand*)command {
+}
+
+- (void)setUserIdentifier:(CDVInvokedUrlCommand*)command {
 //    CDVPluginResult* pluginResult = nil;
 //    NSString *identifier = command.arguments[0];
 //
@@ -44,9 +44,9 @@
 //    }
 //
 //    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-//}
-//
-//- (void)startScreen:(CDVInvokedUrlCommand*)command {
+}
+
+- (void)startScreen:(CDVInvokedUrlCommand*)command {
 //    CDVPluginResult* pluginResult = nil;
 //    NSString *screenName = command.arguments[0];
 //
@@ -58,45 +58,46 @@
 //    }
 //
 //    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-//}
-//
-//- (void)resumeRecording:(CDVInvokedUrlCommand*)command {
+}
+
+- (void)resumeRecording:(CDVInvokedUrlCommand*)command {
 //    [UserExperior resumeRecording];
 //
 //    [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK] callbackId:command.callbackId];
-//}
-//
-//- (void)pauseRecording:(CDVInvokedUrlCommand*)command {
+}
+
+- (void)pauseRecording:(CDVInvokedUrlCommand*)command {
 //    [UserExperior pauseRecording];
 //
 //    [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK] callbackId:command.callbackId];
-//}
-//
-//- (void)stopRecording:(CDVInvokedUrlCommand*)command {
+}
+
+- (void)stopRecording:(CDVInvokedUrlCommand*)command {
 //    [UserExperior stopRecording];
 //
 //    [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK] callbackId:command.callbackId];
-//}
-//
-//- (void)consent:(CDVInvokedUrlCommand*)command {
+}
+
+- (void)consent:(CDVInvokedUrlCommand*)command {
 //    [UserExperior consent];
 //
 //    [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK] callbackId:command.callbackId];
-//}
-//
-//- (void)optIn:(CDVInvokedUrlCommand*)command {
+}
+
+- (void)optIn:(CDVInvokedUrlCommand*)command {
 //    [UserExperior optIn];
 //
 //    [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK] callbackId:command.callbackId];
-//}
-//
-//- (void)optOut:(CDVInvokedUrlCommand*)command {
+}
+
+- (void)optOut:(CDVInvokedUrlCommand*)command {
 //    [UserExperior optOut];
 //
 //    [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK] callbackId:command.callbackId];
-//}
-//
-//- (BOOL)getOptOutStatus:(CDVInvokedUrlCommand*)command {
+}
+
+- (BOOL)getOptOutStatus:(CDVInvokedUrlCommand*)command {
+    return TRUE;
 //    if ([UserExperior getOptOutStatus]) {
 //        [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK] callbackId:command.callbackId];
 //        return TRUE;
@@ -104,7 +105,7 @@
 //        [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR] callbackId:command.callbackId];
 //        return FALSE;
 //    }
-//}
+}
 
 @end
 
