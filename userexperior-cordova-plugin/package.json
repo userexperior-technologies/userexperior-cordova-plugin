@@ -1,13 +1,13 @@
 {
   "name": "userexperior-cordova-plugin",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "spec": "latest",
   "description": "userexperior cordova plugin",
   "cordova": {
     "id": "userexperior-cordova-plugin",
     "platforms": [
       "android",
-      "ios"	
+      "ios"
     ]
   },
   "keywords": [
