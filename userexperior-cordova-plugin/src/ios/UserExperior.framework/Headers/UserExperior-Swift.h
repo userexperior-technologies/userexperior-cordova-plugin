@@ -241,49 +241,21 @@ typedef SWIFT_ENUM(NSInteger, UECustomType, closed) {
 
 
 
-@class UserExperiorInstance;
 
-/// Primary class to integrate UserExperior in your app
-/// Swift
-/// \code
-/// import UserExperior
-/// ...
-///
-/// UserExperior.initialize("USER_KEY")
-///
-/// \endcodeObjective-C
-/// \code
-/// #import <UserExperior/UserExperior-Swift.h>
-/// ...
-///
-/// [UserExperior initialize:@"USER_KEY"];
-///
-/// \endcode
+
+@class UserExperiorInstance;
+@protocol UserExperiorDelegate;
+
 SWIFT_CLASS("_TtC12UserExperior12UserExperior")
 @interface UserExperior : NSObject
-/// Primary class to integrate UserExperior in your app
-/// Swift
-/// \code
-/// import UserExperior
-/// ...
-///
-/// UserExperior.initialize("USER_KEY")
-///
-/// \endcodeObjective-C
-/// \code
-/// #import <UserExperior/UserExperior-Swift.h>
-/// ...
-///
-/// [UserExperior initialize:@"USER_KEY"];
-///
-/// \endcode\param versionKey your api key
-///
 + (UserExperiorInstance * _Nonnull)initialize:(NSString * _Nonnull)versionKey;
 + (UserExperiorInstance * _Nonnull)mainInstance SWIFT_WARN_UNUSED_RESULT;
-+ (void)setCustomTagWithString:(NSString * _Nonnull)customTag customType:(NSString * _Nonnull)customType;
-+ (void)setCustomTag:(NSString * _Nonnull)customTag customType:(enum UECustomType)customType;
 + (void)setUserIdentifier:(NSString * _Nonnull)userIdentifier;
++ (void)setCustomTag:(NSString * _Nonnull)customTag customType:(enum UECustomType)customType;
++ (void)setCustomTagWithString:(NSString * _Nonnull)customTag customType:(NSString * _Nonnull)customType;
 + (void)startScreen:(NSString * _Nonnull)screenName;
++ (void)startTimer:(NSString * _Nonnull)timerName;
++ (void)stopTimer:(NSString * _Nonnull)timerName;
 + (void)stopRecording;
 + (void)pauseRecording;
 + (void)resumeRecording;
@@ -293,7 +265,16 @@ SWIFT_CLASS("_TtC12UserExperior12UserExperior")
 + (void)optIn;
 + (void)optOut;
 + (BOOL)getOptOutStatus SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)getSessionUrl:(NSString * _Nonnull)platformName SWIFT_WARN_UNUSED_RESULT;
++ (void)setDelegate:(id <UserExperiorDelegate> _Nonnull)delegate;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+SWIFT_PROTOCOL("_TtP12UserExperior20UserExperiorDelegate_")
+@protocol UserExperiorDelegate
+- (void)userExperiorSessionStarted;
 @end
 
 
@@ -306,7 +287,19 @@ SWIFT_CLASS("_TtC12UserExperior20UserExperiorInstance")
 
 
 
-@interface UserExperiorInstance (SWIFT_EXTENSION(UserExperior)) <UIScrollViewDelegate>
+
+
+
+
+
+
+
+@class UIGestureRecognizer;
+@class UITouch;
+
+@interface UserExperiorInstance (SWIFT_EXTENSION(UserExperior)) <UIGestureRecognizerDelegate>
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldReceiveTouch:(UITouch * _Nonnull)touch SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
 
 

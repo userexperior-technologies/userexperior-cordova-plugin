@@ -13,5 +13,7 @@
 - (void)optIn:(CDVInvokedUrlCommand*)command;
 - (void)consent:(CDVInvokedUrlCommand*)command;
 - (void)startScreen:(CDVInvokedUrlCommand*)command;
+- (void)startTimer:(CDVInvokedUrlCommand*)command;
+- (void)stopTimer:(CDVInvokedUrlCommand*)command;
 
 @end
