@@ -248,8 +248,7 @@ typedef SWIFT_ENUM(NSInteger, UECustomType, closed) {
 
 SWIFT_CLASS("_TtC12UserExperior12UserExperior")
 @interface UserExperior : NSObject
-+ (UserExperiorInstance * _Nonnull)initialize:(NSString * _Nonnull)versionKey;
-+ (UserExperiorInstance * _Nonnull)mainInstance SWIFT_WARN_UNUSED_RESULT;
++ (void)initialize:(NSString * _Nonnull)versionKey;
 + (void)setUserIdentifier:(NSString * _Nonnull)userIdentifier;
 + (void)setCustomTag:(NSString * _Nonnull)customTag customType:(enum UECustomType)customType;
 + (void)setCustomTagWithString:(NSString * _Nonnull)customTag customType:(NSString * _Nonnull)customType;
