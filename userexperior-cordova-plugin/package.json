@@ -1,6 +1,6 @@
 {
   "name": "userexperior-cordova-plugin",
-  "version": "1.2.14",
+  "version": "1.2.15",
   "spec": "latest",
   "description": "userexperior cordova plugin",
   "cordova": {
