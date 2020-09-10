@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="userexperior-cordova-plugin" version="1.2.17" spec="1.2.17">
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="userexperior-cordova-plugin" version="1.2.18" spec="1.2.18">
    <name>UserExperiorPlugin</name>
    <js-module name="UserExperiorPlugin" src="www/UserExperiorPlugin.js">
       <clobbers target="UserExperior" />
@@ -21,15 +21,16 @@
                 <param name="ios-package" value="CDVUserExperior"/>
             </feature>
         </config-file>
-
+        
         <!-- Source for our iOS plugin -->
         <header-file src="src/ios/CDVUserExperior.h"/>
         <source-file src="src/ios/CDVUserExperior.m"/>
-
+        
         <!-- Add in the UserExperior framework -->
-        <framework src="src/ios/UserExperior.framework" embed="true" custom="true" />
+        <!-- <framework src="src/ios/UserExperior.framework" embed="true" custom="true" />  -->
 
         <!-- and the system frameworks that UserExperior depends on -->
         <framework src="CoreTelephony.framework" />
+        <framework src="UserExperior" type="podspec" spec="~> 4.4.24" />
     </platform>
 </plugin>
