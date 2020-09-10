@@ -1,4 +1,0 @@
-framework module UserExperior {
-  header "UserExperior-Swift.h"
-  requires objc
-}
