@@ -121,7 +121,7 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
-- (void)stopTimer:(CDVInvokedUrlCommand*)command {
+- (void)endTimer:(CDVInvokedUrlCommand*)command {
     CDVPluginResult* pluginResult = nil;
     NSString *timerName = command.arguments[0];
 

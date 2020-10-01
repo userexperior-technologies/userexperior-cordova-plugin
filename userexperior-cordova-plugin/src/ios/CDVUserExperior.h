@@ -14,6 +14,6 @@
 - (void)consent:(CDVInvokedUrlCommand*)command;
 - (void)startScreen:(CDVInvokedUrlCommand*)command;
 - (void)startTimer:(CDVInvokedUrlCommand*)command;
-- (void)stopTimer:(CDVInvokedUrlCommand*)command;
+- (void)endTimer:(CDVInvokedUrlCommand*)command;
 
 @end
