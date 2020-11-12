@@ -37,7 +37,7 @@ UserExperiorPlugin.startScreen = function(screenName, successCallback, errorCall
 	return exec(successCallback, errorCallback, "UserExperiorPlugin", "startScreen", [screenName]);
 };
 
-/*UserExperiorPlugin.startTimer = function(timerName, successCallback, errorCallback)
+UserExperiorPlugin.startTimer = function(timerName, successCallback, errorCallback)
 {
 	return exec(successCallback, errorCallback, "UserExperiorPlugin", "startTimer", [timerName]);
 };
@@ -47,10 +47,35 @@ UserExperiorPlugin.endTimer = function(timerName, successCallback, errorCallback
 	return exec(successCallback, errorCallback, "UserExperiorPlugin", "endTimer", [timerName]);
 };
 
-UserExperiorPlugin.setDeviceLocation = function(latitude, longitude, successCallback, errorCallback)
+/*UserExperiorPlugin.setDeviceLocation = function(latitude, longitude, successCallback, errorCallback)
 {
 	return exec(successCallback, errorCallback, "UserExperiorPlugin", "setDeviceLocation", [latitude, longitude]);
 };*/
+
+UserExperiorPlugin.setUserProperties = function(properties, successCallback, errorCallback)
+{
+  return exec(successCallback, errorCallback, 'UserExperiorPlugin', 'setUserProperties', [properties]);
+};
+
+UserExperiorPlugin.logEvent = function(eventName, successCallback, errorCallback)
+{
+  return exec(successCallback, errorCallback, 'UserExperiorPlugin', 'logEvent', [eventName]);
+};
+
+UserExperiorPlugin.logEventWithProperties = function(eventName, properties, successCallback, errorCallback)
+{
+  return exec(successCallback, errorCallback, 'UserExperiorPlugin', 'logEventWithProperties', [eventName, properties]);
+};
+
+UserExperiorPlugin.logMessage = function(messageName, successCallback, errorCallback)
+{
+  return exec(successCallback, errorCallback, 'UserExperiorPlugin', 'logMessage', [messageName]);
+};
+
+UserExperiorPlugin.logMessageWithProperties = function(messageName, properties, successCallback, errorCallback)
+{
+  return exec(successCallback, errorCallback, 'UserExperiorPlugin', 'logMessageWithProperties', [messageName, properties]);
+};
 
 UserExperiorPlugin.optIn = function(successCallback, errorCallback)
 {

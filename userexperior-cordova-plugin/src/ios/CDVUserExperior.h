@@ -15,5 +15,11 @@
 - (void)startScreen:(CDVInvokedUrlCommand*)command;
 - (void)startTimer:(CDVInvokedUrlCommand*)command;
 - (void)endTimer:(CDVInvokedUrlCommand*)command;
+- (void)setUserProperties:(CDVInvokedUrlCommand*)command;
+- (void)logEvent:(CDVInvokedUrlCommand*)command;
+- (void)logEventWithProperties:(CDVInvokedUrlCommand*)command;
+- (void)logMessage:(CDVInvokedUrlCommand*)command;
+- (void)logMessageWithProperties:(CDVInvokedUrlCommand*)command;
+
 
 @end
