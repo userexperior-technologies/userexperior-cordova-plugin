@@ -7,6 +7,7 @@ import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * This class echoes a string called from JavaScript.
@@ -41,10 +42,62 @@ public class UserExperiorPlugin extends CordovaPlugin {
                 UserExperior.setUserIdentifier(userIdentifier);
             }
 
+            if(action.equals("setUserProperties")){
+                JSONObject params = args.getJSONObject(0);
+
+                if (params != null && params.length() != 0) {
+                    UserExperior.setUserProperties(params);
+                }
+            }
+
             if(action.equals("setCustomTag")){
                 String customTag = args.getString(0);
 				String type = args.getString(1);
                 UserExperior.setCustomTag(customTag, type);
+            }
+
+            if(action.equals("logEvent")){
+                String eventName = args.getString(0);
+                if (eventName == null || eventName.length() == 0) {
+                    throw new IllegalArgumentException("missing event Name");
+                }
+                UserExperior.logEvent(eventName);
+            }
+
+            if(action.equals("logEventWithProperties")){ 
+                String eventName = args.getString(0);
+                JSONObject params = args.getJSONObject(1);
+
+                if (eventName == null || eventName.length() == 0) {
+                    throw new IllegalArgumentException("missing event Name");
+                }
+                if (params == null || params.length() == 0) {
+                    UserExperior.logEvent(eventName);
+                } else {
+                    UserExperior.logEvent(eventName, params);
+                }
+            }
+
+            if(action.equals("logMessage")){
+                String messageName = args.getString(0);
+                if (messageName == null || messageName.length() == 0) {
+                    throw new IllegalArgumentException("missing message Name");
+                }
+                UserExperior.logMessage(messageName);
+            }
+
+            if(action.equals("logMessageWithProperties")){
+                String messageName = args.getString(0);
+                JSONObject params = args.getJSONObject(1);
+
+                if (messageName == null || messageName.length() == 0) {
+                    throw new IllegalArgumentException("missing message Name");
+                }
+                if (params == null || params.length() == 0) {
+                    UserExperior.logMessage(messageName);
+                } else {
+                    UserExperior.logMessage(messageName, params);
+                }
             }
 
             if(action.equals("startScreen")){
