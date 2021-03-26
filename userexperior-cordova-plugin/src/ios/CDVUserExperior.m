@@ -1,5 +1,5 @@
 #import "CDVUserExperior.h"
-#import <UserExperior/UserExperior-Swift.h>
+@import UserExperiorSDK;
 
 @implementation CDVUserExperior
 
