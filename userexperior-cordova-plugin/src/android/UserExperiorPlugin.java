@@ -115,6 +115,17 @@ public class UserExperiorPlugin extends CordovaPlugin {
                 UserExperior.endTimer(timerName);
             }
 
+            if(action.equals("endTimerWithProperties")){
+                String timerName = args.getString(0);
+                JSONObject params = args.getJSONObject(1);
+
+                if (params == null || params.length() == 0) {
+                    UserExperior.endTimer(timerName);
+                } else {
+                    UserExperior.endTimer(timerName, params);
+                }
+            }
+
             if (action.equals("setDeviceLocation"))
             {
                 double latitude = args.getDouble(0);
