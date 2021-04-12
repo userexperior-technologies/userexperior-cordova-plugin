@@ -135,6 +135,22 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+- (void)endTimerWithProperties:(CDVInvokedUrlCommand*)command {
+    CDVPluginResult* pluginResult = nil;
+    NSString* timerName = command.arguments[0];
+    NSDictionary* properties = command.arguments[1];
+
+    if (timerName.length>0 && [properties isKindOfClass:NSDictionary.class]) {
+        [UserExperior stopTimer:timerName properties:properties];
+        
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    } else {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+    }
+
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 - (void)setUserProperties:(CDVInvokedUrlCommand*)command {
     CDVPluginResult* pluginResult = nil;
     NSDictionary* properties = command.arguments[0];
