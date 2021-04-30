@@ -47,10 +47,10 @@ UserExperiorPlugin.endTimer = function(timerName, successCallback, errorCallback
 	return exec(successCallback, errorCallback, "UserExperiorPlugin", "endTimer", [timerName]);
 };
 
-// UserExperiorPlugin.endTimerWithProperties = function(timerName, properties, successCallback, errorCallback)
-// {
-//   return exec(successCallback, errorCallback, 'UserExperiorPlugin', 'endTimerWithProperties', [timerName, properties]);
-// };
+UserExperiorPlugin.endTimerWithProperties = function(timerName, properties, successCallback, errorCallback)
+{
+  return exec(successCallback, errorCallback, 'UserExperiorPlugin', 'endTimerWithProperties', [timerName, properties]);
+};
 
 /*UserExperiorPlugin.setDeviceLocation = function(latitude, longitude, successCallback, errorCallback)
 {
