@@ -21,6 +21,7 @@
 - (void)logEventWithProperties:(CDVInvokedUrlCommand*)command;
 - (void)logMessage:(CDVInvokedUrlCommand*)command;
 - (void)logMessageWithProperties:(CDVInvokedUrlCommand*)command;
+- (BOOL)isRecording:(CDVInvokedUrlCommand*)command;
 
 
 @end

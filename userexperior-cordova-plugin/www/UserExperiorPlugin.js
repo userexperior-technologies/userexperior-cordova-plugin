@@ -102,4 +102,9 @@ UserExperiorPlugin.consent = function(successCallback, errorCallback)
 	return exec(successCallback, errorCallback, "UserExperiorPlugin", "consent", []);
 };
 
+UserExperiorPlugin.isRecording = function(successCallback, errorCallback)
+{
+	return exec(successCallback, errorCallback, "UserExperiorPlugin", "isRecording", []);
+};
+
 module.exports = UserExperiorPlugin;
