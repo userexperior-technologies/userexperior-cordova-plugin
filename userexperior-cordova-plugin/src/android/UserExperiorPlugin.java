@@ -153,6 +153,11 @@ public class UserExperiorPlugin extends CordovaPlugin {
                 UserExperior.consent();
             }
 
+            if (action.equals("isRecording"))
+            {
+                callbackContext.success(UserExperior.isRecording() ? "true" : "false");
+            }
+
             callbackContext.success(result);
 
             return true;
