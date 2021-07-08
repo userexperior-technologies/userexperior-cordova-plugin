@@ -153,7 +153,7 @@
 - (void)setUserProperties:(CDVInvokedUrlCommand*)command {
     CDVPluginResult* pluginResult = nil;
     NSDictionary* properties = command.arguments[0];
-    if ([properties isKindOfClass:NSDictionary.class] {
+    if ([properties isKindOfClass:NSDictionary.class]) {
         [UserExperior setUserProperties:properties];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     } else {
