@@ -27,10 +27,10 @@ UserExperiorPlugin.setUserIdentifier = function(userIdentifier, successCallback,
 	return exec(successCallback, errorCallback, "UserExperiorPlugin", "setUserIdentifier", [userIdentifier]);
 };
 
-UserExperiorPlugin.setCustomTag = function(customTag, type, successCallback, errorCallback)
-{
-	return exec(successCallback, errorCallback, "UserExperiorPlugin", "setCustomTag", [customTag, type]);
-};
+// UserExperiorPlugin.setCustomTag = function(customTag, type, successCallback, errorCallback)
+// {
+// 	return exec(successCallback, errorCallback, "UserExperiorPlugin", "setCustomTag", [customTag, type]);
+// };
 
 UserExperiorPlugin.startScreen = function(screenName, successCallback, errorCallback)
 {

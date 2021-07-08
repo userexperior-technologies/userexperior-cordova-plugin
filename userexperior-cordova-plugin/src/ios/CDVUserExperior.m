@@ -8,8 +8,7 @@
     NSString* apiKey = command.arguments[0];
     
     if (apiKey.length > 0) {
-        NSLog(@"UserExperior 4.1.29 initiated with given key %@ via cordova", apiKey);
-        [UserExperior initialize:apiKey];
+        [UserExperior startRecordingWithVersionKey:apiKey];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     } else {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
@@ -18,19 +17,19 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
-- (void)setCustomTag:(CDVInvokedUrlCommand*)command {
-    CDVPluginResult *pluginResult = nil;
-    NSString *tag = command.arguments[0];
-    NSString *type = command.arguments[1];
+// - (void)setCustomTag:(CDVInvokedUrlCommand*)command {
+//     CDVPluginResult *pluginResult = nil;
+//     NSString *tag = command.arguments[0];
+//     NSString *type = command.arguments[1];
 
-    if (tag.length>0 && type.length>0) {
-        [UserExperior setCustomTagWithString:tag customType:type];
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    } else {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
-    }
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-}
+//     if (tag.length>0 && type.length>0) {
+//         [UserExperior setCustomTagWithString:tag customType:type];
+//         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+//     } else {
+//         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+//     }
+//     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+// }
 
 - (void)setUserIdentifier:(CDVInvokedUrlCommand*)command {
     CDVPluginResult* pluginResult = nil;
@@ -51,7 +50,7 @@
     NSString *screenName = command.arguments[0];
 
     if (screenName.length > 0) {
-        [UserExperior startScreen:screenName];
+        [UserExperior startScreenWithName:screenName];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     } else {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
@@ -79,26 +78,26 @@
 }
 
 - (void)consent:(CDVInvokedUrlCommand*)command {
-    [UserExperior consent];
+    [UserExperior displayConsentRequest];
 
     [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK] callbackId:command.callbackId];
 }
 
 - (void)optIn:(CDVInvokedUrlCommand*)command {
-    [UserExperior optIn];
+    [UserExperior consentOptIn];
 
     [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK] callbackId:command.callbackId];
 }
 
 - (void)optOut:(CDVInvokedUrlCommand*)command {
-    [UserExperior optOut];
+    [UserExperior consentOptOut];
 
     [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK] callbackId:command.callbackId];
 }
 
 - (BOOL)getOptOutStatus:(CDVInvokedUrlCommand*)command {
     return TRUE;
-    if ([UserExperior getOptOutStatus]) {
+    if ([UserExperior consentState]) {
         [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK] callbackId:command.callbackId];
         return TRUE;
     } else {
@@ -112,7 +111,7 @@
     NSString *timerName = command.arguments[0];
 
     if (timerName.length > 0) {
-        [UserExperior startTimer:timerName];
+        [UserExperior startTimerWithName:timerName];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     } else {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
@@ -126,7 +125,7 @@
     NSString *timerName = command.arguments[0];
 
     if (timerName.length > 0) {
-        [UserExperior stopTimer:timerName];
+        [UserExperior stopTimerWithName:timerName];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     } else {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
@@ -141,7 +140,7 @@
     NSDictionary* properties = command.arguments[1];
 
     if (timerName.length>0 && [properties isKindOfClass:NSDictionary.class]) {
-        [UserExperior stopTimer:timerName properties:properties];
+        [UserExperior stopTimerWithName:timerName properties:properties];
         
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     } else {
@@ -169,7 +168,7 @@
     CDVPluginResult* pluginResult = nil;
     NSString* eventName = command.arguments[0];
     if (eventName.length>0) {
-        [UserExperior logEvent:eventName];
+        [UserExperior logEventWithName:eventName];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     } else {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
@@ -184,7 +183,7 @@
     NSDictionary* properties = command.arguments[1];
 
     if (eventName.length>0 && [properties isKindOfClass:NSDictionary.class]) {
-        [UserExperior logEvent:eventName properties:properties];
+        [UserExperior logEventWithName:eventName properties:properties];
         
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     } else {
@@ -198,7 +197,7 @@
     CDVPluginResult* pluginResult = nil;
     NSString* messageName = command.arguments[0];
     if (messageName.length>0) {
-        [UserExperior logMessage:messageName];
+        [UserExperior logMessageWithName:messageName];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     } else {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
@@ -213,7 +212,7 @@
     NSDictionary* properties = command.arguments[1];
 
     if (messageName.length>0 && [properties isKindOfClass:NSDictionary.class]) {
-        [UserExperior logMessage:messageName properties:properties];
+        [UserExperior logMessageWithName:messageName properties:properties];
         
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     } else {
