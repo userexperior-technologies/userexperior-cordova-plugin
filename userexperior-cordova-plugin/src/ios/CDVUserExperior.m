@@ -97,7 +97,7 @@
 
 - (BOOL)getOptOutStatus:(CDVInvokedUrlCommand*)command {
     return TRUE;
-    if ([UserExperior consentState]) {
+    if ([UserExperior getConsentState]) {
         [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK] callbackId:command.callbackId];
         return TRUE;
     } else {
