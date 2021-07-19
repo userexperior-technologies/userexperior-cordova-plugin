@@ -8,7 +8,7 @@
 dependencies {
     //compile(name:'userexperiorsdk-V2-2-04202018', ext:'aar')
 	//compile 'com.userexperior:userexperior-android:+'
-	implementation 'com.userexperior:userexperior-android:6.0.6'
+	implementation 'com.userexperior:userexperior-android:6.0.7'
 }
 
 android {
