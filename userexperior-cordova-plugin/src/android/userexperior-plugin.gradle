@@ -1,14 +1,23 @@
-/*repositories{
-    jcenter()
+repositories{
+    /*jcenter()
     flatDir {
         dirs 'libs'
+    }*/
+
+    mavenCentral()
+    maven {
+        url "https://s01.oss.sonatype.org/content/repositories/snapshots/"
     }
-}*/
+}
+
+
+
 
 dependencies {
     //compile(name:'userexperiorsdk-V2-2-04202018', ext:'aar')
 	//compile 'com.userexperior:userexperior-android:+'
-	implementation 'com.userexperior:userexperior-android:6.0.7'
+	//implementation 'com.userexperior:userexperior-android:6.0.7'
+    implementation 'com.userexperior:userexperior-android:1.5.0-SNAPSHOT'
 }
 
 android {
