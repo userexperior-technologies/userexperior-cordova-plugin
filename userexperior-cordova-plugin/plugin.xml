@@ -31,6 +31,6 @@
 
         <!-- and the system frameworks that UserExperior depends on -->
         <framework src="CoreTelephony.framework" />
-        <framework src="UserExperior" type="podspec" spec="~> 5.0.5" />
+        <framework src="UserExperior" type="podspec" spec="~> 5.0.7" />
     </platform>
 </plugin>
