@@ -6,9 +6,11 @@
 - (void)startRecording:(CDVInvokedUrlCommand *)command {
     CDVPluginResult* pluginResult = nil;
     NSString* apiKey = command.arguments[0];
+    NSString* fw = command.arguments[1];
+    NSString* sv = command.arguments[2];
     
     if (apiKey.length > 0) {
-        [UserExperior startRecordingWithVersionKey:apiKey];
+        [UserExperior startRecordingWithVersionKey:apiKey fw:fw sv:sv];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     } else {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
@@ -139,7 +141,7 @@
     NSString* timerName = command.arguments[0];
     NSDictionary* properties = command.arguments[1];
 
-    if (timerName.length>0 && [properties isKindOfClass:NSDictionary.class]) {
+    if (timerName.length > 0 && [properties isKindOfClass:NSDictionary.class]) {
         [UserExperior stopTimerWithName:timerName properties:properties];
         
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
@@ -167,7 +169,7 @@
 - (void)logEvent:(CDVInvokedUrlCommand*)command {
     CDVPluginResult* pluginResult = nil;
     NSString* eventName = command.arguments[0];
-    if (eventName.length>0) {
+    if (eventName.length > 0) {
         [UserExperior logEventWithName:eventName];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     } else {
@@ -182,7 +184,7 @@
     NSString* eventName = command.arguments[0];
     NSDictionary* properties = command.arguments[1];
 
-    if (eventName.length>0 && [properties isKindOfClass:NSDictionary.class]) {
+    if (eventName.length > 0 && [properties isKindOfClass:NSDictionary.class]) {
         [UserExperior logEventWithName:eventName properties:properties];
         
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
@@ -196,7 +198,7 @@
 - (void)logMessage:(CDVInvokedUrlCommand*)command {
     CDVPluginResult* pluginResult = nil;
     NSString* messageName = command.arguments[0];
-    if (messageName.length>0) {
+    if (messageName.length > 0) {
         [UserExperior logMessageWithName:messageName];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     } else {
@@ -211,9 +213,8 @@
     NSString* messageName = command.arguments[0];
     NSDictionary* properties = command.arguments[1];
 
-    if (messageName.length>0 && [properties isKindOfClass:NSDictionary.class]) {
+    if (messageName.length > 0 && [properties isKindOfClass:NSDictionary.class]) {
         [UserExperior logMessageWithName:messageName properties:properties];
-        
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     } else {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
