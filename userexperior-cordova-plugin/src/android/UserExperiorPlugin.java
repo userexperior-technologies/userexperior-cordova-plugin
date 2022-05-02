@@ -22,7 +22,9 @@ public class UserExperiorPlugin extends CordovaPlugin {
             if(action.equals("startRecording")){
 				Context context = this.cordova.getActivity().getApplicationContext();
 				String ueSdkAppVersionKey = args.getString(0);
-                UserExperior.startRecording(context, ueSdkAppVersionKey, "cordova");
+                String fw = args.getString(1);
+                String sv = args.getString(2);
+                UserExperior.startRecording(context, ueSdkAppVersionKey, fw, sv);
             }
 
             if(action.equals("stopRecording")){
