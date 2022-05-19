@@ -14,6 +14,7 @@
 - (void)consent:(CDVInvokedUrlCommand*)command;
 - (void)startScreen:(CDVInvokedUrlCommand*)command;
 - (void)startTimer:(CDVInvokedUrlCommand*)command;
+- (void)startTimerWithProperties:(CDVInvokedUrlCommand*)command;
 - (void)endTimer:(CDVInvokedUrlCommand*)command;
 - (void)endTimerWithProperties:(CDVInvokedUrlCommand*)command;
 - (void)setUserProperties:(CDVInvokedUrlCommand*)command;

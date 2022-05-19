@@ -45,6 +45,11 @@ UserExperiorPlugin.startTimer = function(timerName, successCallback, errorCallba
 	return exec(successCallback, errorCallback, "UserExperiorPlugin", "startTimer", [timerName]);
 };
 
+UserExperiorPlugin.startTimerWithProperties = function(timerName, properties, successCallback, errorCallback)
+{
+  return exec(successCallback, errorCallback, 'UserExperiorPlugin', 'startTimerWithProperties', [timerName, properties]);
+};
+
 UserExperiorPlugin.endTimer = function(timerName, successCallback, errorCallback)
 {
 	return exec(successCallback, errorCallback, "UserExperiorPlugin", "endTimer", [timerName]);
