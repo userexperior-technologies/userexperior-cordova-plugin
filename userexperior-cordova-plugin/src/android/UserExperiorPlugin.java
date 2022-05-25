@@ -112,6 +112,17 @@ public class UserExperiorPlugin extends CordovaPlugin {
                 UserExperior.startTimer(timerName);
             }
 
+            if(action.equals("startTimerWithProperties")){
+                String timerName = args.getString(0);
+                JSONObject params = args.getJSONObject(1);
+
+                if (params == null || params.length() == 0) {
+                    UserExperior.startTimer(timerName);
+                } else {
+                    UserExperior.startTimer(timerName, params);
+                }
+            }
+
             if(action.equals("endTimer")){
                 String timerName = args.getString(0);
                 UserExperior.endTimer(timerName);
