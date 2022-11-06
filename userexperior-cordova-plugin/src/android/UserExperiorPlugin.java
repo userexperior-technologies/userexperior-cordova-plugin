@@ -160,11 +160,6 @@ public class UserExperiorPlugin extends CordovaPlugin {
             {
                 UserExperior.getOptOutStatus();
             }
-            
-            if (action.equals("consent"))
-            {
-                UserExperior.consent();
-            }
 
             if (action.equals("isRecording"))
             {

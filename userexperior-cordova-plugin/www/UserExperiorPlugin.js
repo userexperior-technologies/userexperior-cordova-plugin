@@ -1,7 +1,7 @@
 var exec = require('cordova/exec');
 
 const fw = "ca"; // framework: cordova
-const sv = "1.4.7"; // SDK/Plugin Version
+const sv = "1.4.8"; // SDK/Plugin Version
 
 var UserExperiorPlugin = function() {};
 
@@ -105,10 +105,10 @@ UserExperiorPlugin.getOptOutStatus = function(successCallback, errorCallback)
 	return exec(successCallback, errorCallback, "UserExperiorPlugin", "getOptOutStatus", []);
 };
 
-UserExperiorPlugin.consent = function(successCallback, errorCallback)
-{
-	return exec(successCallback, errorCallback, "UserExperiorPlugin", "consent", []);
-};
+//UserExperiorPlugin.consent = function(successCallback, errorCallback)
+//{
+	//return exec(successCallback, errorCallback, "UserExperiorPlugin", "consent", []);
+//};
 
 UserExperiorPlugin.isRecording = function(successCallback, errorCallback)
 {
