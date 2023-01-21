@@ -11,7 +11,7 @@
 - (BOOL)getOptOutStatus:(CDVInvokedUrlCommand*)command;
 - (void)optOut:(CDVInvokedUrlCommand*)command;
 - (void)optIn:(CDVInvokedUrlCommand*)command;
-- (void)consent:(CDVInvokedUrlCommand*)command;
+// - (void)consent:(CDVInvokedUrlCommand*)command;
 - (void)startScreen:(CDVInvokedUrlCommand*)command;
 - (void)startTimer:(CDVInvokedUrlCommand*)command;
 - (void)startTimerWithProperties:(CDVInvokedUrlCommand*)command;

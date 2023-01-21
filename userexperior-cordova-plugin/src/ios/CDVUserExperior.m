@@ -79,11 +79,11 @@
     [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK] callbackId:command.callbackId];
 }
 
-- (void)consent:(CDVInvokedUrlCommand*)command {
-    [UserExperior displayConsentRequest];
+// - (void)consent:(CDVInvokedUrlCommand*)command {
+//     [UserExperior displayConsentRequest];
 
-    [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK] callbackId:command.callbackId];
-}
+//     [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK] callbackId:command.callbackId];
+// }
 
 - (void)optIn:(CDVInvokedUrlCommand*)command {
     [UserExperior consentOptIn];
