@@ -1,7 +1,7 @@
 var exec = require('cordova/exec');
 
 const fw = "ca"; // framework: cordova
-const sv = "1.5.1"; // SDK/Plugin Version
+const sv = "2.0.0"; // SDK/Plugin Version
 
 var UserExperiorPlugin = function() {};
 
