@@ -19,20 +19,6 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
-// - (void)setCustomTag:(CDVInvokedUrlCommand*)command {
-//     CDVPluginResult *pluginResult = nil;
-//     NSString *tag = command.arguments[0];
-//     NSString *type = command.arguments[1];
-
-//     if (tag.length>0 && type.length>0) {
-//         [UserExperior setCustomTagWithString:tag customType:type];
-//         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-//     } else {
-//         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
-//     }
-//     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-// }
-
 - (void)setUserIdentifier:(CDVInvokedUrlCommand*)command {
     CDVPluginResult* pluginResult = nil;
     NSString *identifier = command.arguments[0];
@@ -78,12 +64,6 @@
 
     [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK] callbackId:command.callbackId];
 }
-
-// - (void)consent:(CDVInvokedUrlCommand*)command {
-//     [UserExperior displayConsentRequest];
-
-//     [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK] callbackId:command.callbackId];
-// }
 
 - (void)optIn:(CDVInvokedUrlCommand*)command {
     [UserExperior consentOptIn];
@@ -143,7 +123,7 @@
     NSString *timerName = command.arguments[0];
 
     if (timerName.length > 0) {
-        [UserExperior stopTimerWithName:timerName];
+        [UserExperior endTimerWithName:timerName];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     } else {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
@@ -158,7 +138,7 @@
     NSDictionary* properties = command.arguments[1];
 
     if (timerName.length > 0 && [properties isKindOfClass:NSDictionary.class]) {
-        [UserExperior stopTimerWithName:timerName properties:properties];
+        [UserExperior endTimerWithName:timerName properties:properties];
         
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     } else {
