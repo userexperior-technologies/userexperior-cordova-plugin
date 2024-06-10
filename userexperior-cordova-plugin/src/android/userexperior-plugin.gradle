@@ -16,7 +16,7 @@ repositories{
 dependencies {
     //compile(name:'userexperiorsdk-V2-2-04202018', ext:'aar')
 	//compile 'com.userexperior:userexperior-android:+'
-	implementation 'com.userexperior:userexperior-android:7.3.2'
+	implementation 'com.userexperior:userexperior-android:7.3.3'
     //implementation 'com.userexperior:userexperior-android:1.8.0-SNAPSHOT'
 }
 
