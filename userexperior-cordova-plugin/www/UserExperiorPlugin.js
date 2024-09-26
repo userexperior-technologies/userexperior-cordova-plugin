@@ -1,7 +1,7 @@
 var exec = require('cordova/exec');
 
 const fw = "ca"; // framework: cordova
-const sv = "4.0.0"; // SDK/Plugin Version
+const sv = "4.0.1"; // SDK/Plugin Version
 
 var UserExperiorPlugin = function() {};
 
@@ -13,6 +13,11 @@ UserExperiorPlugin.startRecording = function(ueSdkAppVersionKey, successCallback
 UserExperiorPlugin.stopRecording = function(successCallback, errorCallback)
 {
 	return exec(successCallback, errorCallback, "UserExperiorPlugin", "stopRecording", []);
+};
+
+UserExperiorPlugin.stopRecording = function(resetAppSessionId, successCallback, errorCallback)
+{
+	return exec(successCallback, errorCallback, "UserExperiorPlugin", "stopRecording", [resetAppSessionId]);
 };
 
 UserExperiorPlugin.pauseRecording = function(successCallback, errorCallback)
