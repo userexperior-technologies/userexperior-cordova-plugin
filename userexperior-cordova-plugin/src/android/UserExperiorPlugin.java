@@ -28,7 +28,13 @@ public class UserExperiorPlugin extends CordovaPlugin {
             }
 
             if(action.equals("stopRecording")){
-                UserExperior.stopRecording();
+                if (args.length() == 0) {
+                    // No arguments provided, call the function without resetAppSessionId
+                    UserExperior.stopRecording();
+                } else {
+                    // If any argument (boolean) provided, call the function with resetAppSessionId
+                    UserExperior.stopRecording(args.getBoolean(0));
+                }
             }
 
             if(action.equals("pauseRecording")){
