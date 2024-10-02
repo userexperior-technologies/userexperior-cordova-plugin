@@ -66,7 +66,7 @@
     } else {
         // If any argument (boolean) provided, call the function with resetAppSessionID
         BOOL resetAppSessionID = [[command.arguments objectAtIndex:0] boolValue];
-        [UserExperior stopRecordingWithResetSession:resetAppSessionID];
+        [UserExperior stopRecording:resetAppSessionID];
     }
 
     // Send success result back to the Cordova plugin
