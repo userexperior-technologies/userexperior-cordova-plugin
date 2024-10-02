@@ -60,8 +60,16 @@
 }
 
 - (void)stopRecording:(CDVInvokedUrlCommand*)command {
-    [UserExperior stopRecording];
+    if (command.arguments.count == 0) {
+        // No arguments provided, call the function without resetAppSessionID
+        [UserExperior stopRecording];
+    } else {
+        // If any argument (boolean) provided, call the function with resetAppSessionID
+        BOOL resetAppSessionID = [[command.arguments objectAtIndex:0] boolValue];
+        [UserExperior stopRecordingWithResetSession:resetAppSessionID];
+    }
 
+    // Send success result back to the Cordova plugin
     [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK] callbackId:command.callbackId];
 }
 
