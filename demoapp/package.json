@@ -13,7 +13,7 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "dependencies": {
-    "cordova-ios": "^5.0.1",
+    "cordova-ios": "^6.2.0",
     "userexperior-cordova-plugin": "file:../userexperior-cordova-plugin"
   },
   "devDependencies": {
